@@ -6,7 +6,7 @@ const Class = {
         return result.rows[0];
     },
     getAll: async () => {
-        const result = await db.query('SELECT * FROM Classes');
+        const result = await db.query('SELECT * FROM classes');
         return result.rows;
     },
     getById: async (id) => {

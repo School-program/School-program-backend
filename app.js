@@ -1,6 +1,6 @@
 const express = require('express');
 const dbConfig = require('./config/dbConfig');
-const classRoutes = require('./routes/classRoutes');
+const classRoutes = require('./routers/classes.routers');
 
 const app = express();
 app.use(express.json());
@@ -9,7 +9,7 @@ app.use(express.json());
 dbConfig.connect();
 
 // הגדרת הנתיבים
-app.use('/api/classes', classRoutes);
+app.use('/classes', classRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
