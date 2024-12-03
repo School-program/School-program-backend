@@ -1,9 +1,8 @@
 const express = require('express');
-const classController = require('../controllers/classController');
+const classController = require('../controllers/classes.controller');
 
 const router = express.Router();
 
-// קריאות API עבור ה-Class
 router.post('/', classController.createClass);
 router.get('/', classController.getAllClasses);
 router.get('/:id', classController.getClassById);
