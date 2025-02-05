@@ -1,16 +1,23 @@
+require('dotenv').config();
 const express = require('express');
 const dbConfig = require('./config/dbConfig');
 const classRoutes = require('./routers/classes.routers');
 const dailyDataRoutes = require('./routers/dailydata.routers');
+const authRoutes = require('./routers/auth.routers');
 
+const cors = require('cors');
 
 const app = express();
+app.use(cors()); // מאפשר לכל הדומיינים לגשת
+
 app.use(express.json());
 
 dbConfig.connect();
 
 app.use('/classes', classRoutes);
 app.use('/dailydata', dailyDataRoutes);
+app.use('/auth', authRoutes);
+
 
 
 const PORT = process.env.PORT || 3000;

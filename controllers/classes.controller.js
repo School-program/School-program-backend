@@ -10,6 +10,15 @@ const getAllClasses = async (req, res) => {
     const classes = await Class.getAll();
     res.status(200).json(classes);
 };
+const getYearlyPoints = async (req, res) => {
+    const yearlyPoints = await Class.getYearlyPoints();
+    res.status(200).json(yearlyPoints);
+};
+
+const getTopThreeClasses = async (req, res) => {
+    const topClasses = await Class.getTopThreeClasses();
+    res.status(200).json(topClasses);
+};
 
 const getClassById = async (req, res) => {
     const { id } = req.params;
@@ -45,4 +54,6 @@ module.exports = {
     getClassById,
     updateClass,
     deleteClass,
+    getTopThreeClasses,
+    getYearlyPoints,
 };
