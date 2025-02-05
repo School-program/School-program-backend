@@ -6,7 +6,7 @@ const Class = {
         return result.rows[0];
     },
     getAll: async () => {
-        const result = await db.query('SELECT * FROM classes order by class_id');
+        const result = await db.query('SELECT * FROM classes order by class_id ');
         return result.rows;
     },
     getById: async (id) => {
