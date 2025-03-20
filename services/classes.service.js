@@ -39,7 +39,15 @@ const Class = {
         return result.rows;
     },
     
-    
+    getByYear: async (year) => {
+        // מניחים ששמות הכיתות מתחילים בשנתון (למשל "א1", "א2" וכו')
+        const result = await db.query(
+          'SELECT * FROM classes WHERE class_name LIKE $1 ORDER BY class_id',
+          [`%${year}%`]
+        );
+        return result.rows;
+      },
 };
+
 
 module.exports = Class;

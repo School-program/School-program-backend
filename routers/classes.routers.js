@@ -10,5 +10,7 @@ router.get('/yearly-points', classController.getYearlyPoints);
 router.get('/:id', classController.getClassById);
 router.put('/:id', classController.updateClass);
 router.delete('/:id', classController.deleteClass);
+router.get('/by-year/:year', classController.getClassesByYear);
+
 
 module.exports = router;
