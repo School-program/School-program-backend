@@ -47,6 +47,16 @@ const deleteClass = async (req, res) => {
     }
     res.status(204).send();
 };
+const getClassesByYear = async (req, res) => {
+    const { year } = req.params;  // קבלת הפרמטר מהנתיב
+    try {
+        const classes = await Class.getByYear(year); // קריאה לשירות שמסנן לפי שנה
+        res.status(200).json(classes);
+    } catch (error) {
+        console.error('Error fetching classes by year:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
 
 module.exports = {
     createClass,
@@ -56,4 +66,5 @@ module.exports = {
     deleteClass,
     getTopThreeClasses,
     getYearlyPoints,
+    getClassesByYear,
 };
